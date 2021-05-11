@@ -1,0 +1,2 @@
+nodes
+-DCATKIN_DEVEL_PREFIX=/home/pi/Desktop/final_proj/devel -DCMAKE_INSTALL_PREFIX=/home/pi/Desktop/final_proj/install -G Unix Makefiles

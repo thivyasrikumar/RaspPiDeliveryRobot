@@ -1,0 +1,8 @@
+prefix=/home/pi/Desktop/final_proj/install
+
+Name: nodes
+Description: Description of nodes
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: 

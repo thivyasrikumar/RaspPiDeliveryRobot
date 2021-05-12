@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "/home/pi/Desktop/final_proj/devel/share/roseus/ros/nodes/manifest.l"
   "/home/pi/Desktop/final_proj/devel/share/roseus/ros/nodes/msg/MotorCmd.l"
+  "/home/pi/Desktop/final_proj/devel/share/roseus/ros/nodes/msg/OCRResponse.l"
   "CMakeFiles/nodes_generate_messages_eus"
 )
 

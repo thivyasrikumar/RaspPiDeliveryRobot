@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/pi/Desktop/final_proj/build
 include nodes/CMakeFiles/nodes_generate_messages_nodejs.dir/progress.make
 
 nodes/CMakeFiles/nodes_generate_messages_nodejs: /home/pi/Desktop/final_proj/devel/share/gennodejs/ros/nodes/msg/MotorCmd.js
+nodes/CMakeFiles/nodes_generate_messages_nodejs: /home/pi/Desktop/final_proj/devel/share/gennodejs/ros/nodes/msg/OCRResponse.js
 
 
 /home/pi/Desktop/final_proj/devel/share/gennodejs/ros/nodes/msg/MotorCmd.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
@@ -61,8 +62,14 @@ nodes/CMakeFiles/nodes_generate_messages_nodejs: /home/pi/Desktop/final_proj/dev
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from nodes/MotorCmd.msg"
 	cd /home/pi/Desktop/final_proj/build/nodes && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/pi/Desktop/final_proj/src/nodes/msg/MotorCmd.msg -Inodes:/home/pi/Desktop/final_proj/src/nodes/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p nodes -o /home/pi/Desktop/final_proj/devel/share/gennodejs/ros/nodes/msg
 
+/home/pi/Desktop/final_proj/devel/share/gennodejs/ros/nodes/msg/OCRResponse.js: /opt/ros/melodic/lib/gennodejs/gen_nodejs.py
+/home/pi/Desktop/final_proj/devel/share/gennodejs/ros/nodes/msg/OCRResponse.js: /home/pi/Desktop/final_proj/src/nodes/msg/OCRResponse.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from nodes/OCRResponse.msg"
+	cd /home/pi/Desktop/final_proj/build/nodes && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/pi/Desktop/final_proj/src/nodes/msg/OCRResponse.msg -Inodes:/home/pi/Desktop/final_proj/src/nodes/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p nodes -o /home/pi/Desktop/final_proj/devel/share/gennodejs/ros/nodes/msg
+
 nodes_generate_messages_nodejs: nodes/CMakeFiles/nodes_generate_messages_nodejs
 nodes_generate_messages_nodejs: /home/pi/Desktop/final_proj/devel/share/gennodejs/ros/nodes/msg/MotorCmd.js
+nodes_generate_messages_nodejs: /home/pi/Desktop/final_proj/devel/share/gennodejs/ros/nodes/msg/OCRResponse.js
 nodes_generate_messages_nodejs: nodes/CMakeFiles/nodes_generate_messages_nodejs.dir/build.make
 
 .PHONY : nodes_generate_messages_nodejs

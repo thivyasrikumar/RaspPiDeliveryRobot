@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/pi/Desktop/final_proj/build
 include nodes/CMakeFiles/nodes_generate_messages_eus.dir/progress.make
 
 nodes/CMakeFiles/nodes_generate_messages_eus: /home/pi/Desktop/final_proj/devel/share/roseus/ros/nodes/msg/MotorCmd.l
+nodes/CMakeFiles/nodes_generate_messages_eus: /home/pi/Desktop/final_proj/devel/share/roseus/ros/nodes/msg/OCRResponse.l
 nodes/CMakeFiles/nodes_generate_messages_eus: /home/pi/Desktop/final_proj/devel/share/roseus/ros/nodes/manifest.l
 
 
@@ -62,12 +63,18 @@ nodes/CMakeFiles/nodes_generate_messages_eus: /home/pi/Desktop/final_proj/devel/
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from nodes/MotorCmd.msg"
 	cd /home/pi/Desktop/final_proj/build/nodes && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pi/Desktop/final_proj/src/nodes/msg/MotorCmd.msg -Inodes:/home/pi/Desktop/final_proj/src/nodes/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p nodes -o /home/pi/Desktop/final_proj/devel/share/roseus/ros/nodes/msg
 
+/home/pi/Desktop/final_proj/devel/share/roseus/ros/nodes/msg/OCRResponse.l: /opt/ros/melodic/lib/geneus/gen_eus.py
+/home/pi/Desktop/final_proj/devel/share/roseus/ros/nodes/msg/OCRResponse.l: /home/pi/Desktop/final_proj/src/nodes/msg/OCRResponse.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from nodes/OCRResponse.msg"
+	cd /home/pi/Desktop/final_proj/build/nodes && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/pi/Desktop/final_proj/src/nodes/msg/OCRResponse.msg -Inodes:/home/pi/Desktop/final_proj/src/nodes/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p nodes -o /home/pi/Desktop/final_proj/devel/share/roseus/ros/nodes/msg
+
 /home/pi/Desktop/final_proj/devel/share/roseus/ros/nodes/manifest.l: /opt/ros/melodic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp manifest code for nodes"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp manifest code for nodes"
 	cd /home/pi/Desktop/final_proj/build/nodes && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/pi/Desktop/final_proj/devel/share/roseus/ros/nodes nodes std_msgs
 
 nodes_generate_messages_eus: nodes/CMakeFiles/nodes_generate_messages_eus
 nodes_generate_messages_eus: /home/pi/Desktop/final_proj/devel/share/roseus/ros/nodes/msg/MotorCmd.l
+nodes_generate_messages_eus: /home/pi/Desktop/final_proj/devel/share/roseus/ros/nodes/msg/OCRResponse.l
 nodes_generate_messages_eus: /home/pi/Desktop/final_proj/devel/share/roseus/ros/nodes/manifest.l
 nodes_generate_messages_eus: nodes/CMakeFiles/nodes_generate_messages_eus.dir/build.make
 

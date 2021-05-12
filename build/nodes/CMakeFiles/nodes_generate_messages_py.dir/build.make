@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/pi/Desktop/final_proj/build
 include nodes/CMakeFiles/nodes_generate_messages_py.dir/progress.make
 
 nodes/CMakeFiles/nodes_generate_messages_py: /home/pi/Desktop/final_proj/devel/lib/python2.7/dist-packages/nodes/msg/_MotorCmd.py
+nodes/CMakeFiles/nodes_generate_messages_py: /home/pi/Desktop/final_proj/devel/lib/python2.7/dist-packages/nodes/msg/_OCRResponse.py
 nodes/CMakeFiles/nodes_generate_messages_py: /home/pi/Desktop/final_proj/devel/lib/python2.7/dist-packages/nodes/msg/__init__.py
 
 
@@ -62,13 +63,20 @@ nodes/CMakeFiles/nodes_generate_messages_py: /home/pi/Desktop/final_proj/devel/l
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG nodes/MotorCmd"
 	cd /home/pi/Desktop/final_proj/build/nodes && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/pi/Desktop/final_proj/src/nodes/msg/MotorCmd.msg -Inodes:/home/pi/Desktop/final_proj/src/nodes/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p nodes -o /home/pi/Desktop/final_proj/devel/lib/python2.7/dist-packages/nodes/msg
 
+/home/pi/Desktop/final_proj/devel/lib/python2.7/dist-packages/nodes/msg/_OCRResponse.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
+/home/pi/Desktop/final_proj/devel/lib/python2.7/dist-packages/nodes/msg/_OCRResponse.py: /home/pi/Desktop/final_proj/src/nodes/msg/OCRResponse.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG nodes/OCRResponse"
+	cd /home/pi/Desktop/final_proj/build/nodes && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/pi/Desktop/final_proj/src/nodes/msg/OCRResponse.msg -Inodes:/home/pi/Desktop/final_proj/src/nodes/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p nodes -o /home/pi/Desktop/final_proj/devel/lib/python2.7/dist-packages/nodes/msg
+
 /home/pi/Desktop/final_proj/devel/lib/python2.7/dist-packages/nodes/msg/__init__.py: /opt/ros/melodic/lib/genpy/genmsg_py.py
 /home/pi/Desktop/final_proj/devel/lib/python2.7/dist-packages/nodes/msg/__init__.py: /home/pi/Desktop/final_proj/devel/lib/python2.7/dist-packages/nodes/msg/_MotorCmd.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python msg __init__.py for nodes"
+/home/pi/Desktop/final_proj/devel/lib/python2.7/dist-packages/nodes/msg/__init__.py: /home/pi/Desktop/final_proj/devel/lib/python2.7/dist-packages/nodes/msg/_OCRResponse.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python msg __init__.py for nodes"
 	cd /home/pi/Desktop/final_proj/build/nodes && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/pi/Desktop/final_proj/devel/lib/python2.7/dist-packages/nodes/msg --initpy
 
 nodes_generate_messages_py: nodes/CMakeFiles/nodes_generate_messages_py
 nodes_generate_messages_py: /home/pi/Desktop/final_proj/devel/lib/python2.7/dist-packages/nodes/msg/_MotorCmd.py
+nodes_generate_messages_py: /home/pi/Desktop/final_proj/devel/lib/python2.7/dist-packages/nodes/msg/_OCRResponse.py
 nodes_generate_messages_py: /home/pi/Desktop/final_proj/devel/lib/python2.7/dist-packages/nodes/msg/__init__.py
 nodes_generate_messages_py: nodes/CMakeFiles/nodes_generate_messages_py.dir/build.make
 

@@ -19,6 +19,48 @@ def warp(img):
 	transform_matrix = cv2.getPerspectiveTransform(pts_warp, pts_orig)
 	img_warp = cv2.warpPerspective(img, transform_matrix, (w,h)) 
 	return img_warp
+"""
+Function to determine distribution of white pixels by summing up columns 
+img: OpenCV image
+minPercentage: 
+display: will display histogram distribution if true 
+ROI: Region of Interest , divides image into ROI number of regions and looks at bottom region
+"""
+# findings summation of pixels 
+def distribution(img, minPercentage = 0.1, display = False, ROI=1):
+    # img.shape[0] = height 
+	dist_vals = np.sum(img[img.shape[0]//ROI:,:],axis=0)
+    
+	'''
+	if ROI == 1: 
+        # summing up all vertical pixels 
+        distValues = np.sum(img,axis=0)
+    else: 
+        # summing up vertical pixels in some lower region 
+        distValues = np.sum(img[img.shape[0]//ROI:,:],axis=0)
+   '''
+    # find maximum value in distValues
+    # if you have at least 50-60% of max value, that is valid noise
+    # everything below this percentage is invalid 
+    maxValue = np.max(distValues)
+    # set threshold minimum
+    minValue = minPercentage * maxValue
+    # finding the index of each "column" from distValues
+    # gives us array of indexes where value is greater than minValue
+    indices = np.where(histValues >= minValue)
+    # find base point by averaging 
+    basePoint = int(np.average(indices))
+    # showing histogram of distribution
+    if display:
+        hist = np.zeros((img.shape[0], img.shape[1],3),np.uint8)
+        for x,intensity in enumerate(distValues):
+            # shows histogram of distribution
+            cv2.line(hist,(x,img.shape[0]),(x,img.shape[0]-intensity//255//ROI), (255,0,255),1)
+            # shows basePoint
+            cv2.circle(hist,(basePoint,img.shape[0]),20,(0,255,255),cv2.FILLED)
+        return basePoint, hist
+    return basePoint
+
 
 """
 Function to find lane curvature from an image
@@ -29,7 +71,7 @@ def lane_curve(ros_img):
 	global bridge
 	
 	# convert ROS image to OpenCV
-	
+
 	img = bridge.imgmsg_to_cv2(ros_img)
 	img = warp(img)
 

@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/pi/Desktop/final_proj/build
 include nodes/CMakeFiles/nodes_generate_messages_lisp.dir/progress.make
 
 nodes/CMakeFiles/nodes_generate_messages_lisp: /home/pi/Desktop/final_proj/devel/share/common-lisp/ros/nodes/msg/MotorCmd.lisp
+nodes/CMakeFiles/nodes_generate_messages_lisp: /home/pi/Desktop/final_proj/devel/share/common-lisp/ros/nodes/msg/OCRResponse.lisp
 
 
 /home/pi/Desktop/final_proj/devel/share/common-lisp/ros/nodes/msg/MotorCmd.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
@@ -61,8 +62,14 @@ nodes/CMakeFiles/nodes_generate_messages_lisp: /home/pi/Desktop/final_proj/devel
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Lisp code from nodes/MotorCmd.msg"
 	cd /home/pi/Desktop/final_proj/build/nodes && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/pi/Desktop/final_proj/src/nodes/msg/MotorCmd.msg -Inodes:/home/pi/Desktop/final_proj/src/nodes/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p nodes -o /home/pi/Desktop/final_proj/devel/share/common-lisp/ros/nodes/msg
 
+/home/pi/Desktop/final_proj/devel/share/common-lisp/ros/nodes/msg/OCRResponse.lisp: /opt/ros/melodic/lib/genlisp/gen_lisp.py
+/home/pi/Desktop/final_proj/devel/share/common-lisp/ros/nodes/msg/OCRResponse.lisp: /home/pi/Desktop/final_proj/src/nodes/msg/OCRResponse.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from nodes/OCRResponse.msg"
+	cd /home/pi/Desktop/final_proj/build/nodes && ../catkin_generated/env_cached.sh /usr/bin/python2 /opt/ros/melodic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/pi/Desktop/final_proj/src/nodes/msg/OCRResponse.msg -Inodes:/home/pi/Desktop/final_proj/src/nodes/msg -Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg -p nodes -o /home/pi/Desktop/final_proj/devel/share/common-lisp/ros/nodes/msg
+
 nodes_generate_messages_lisp: nodes/CMakeFiles/nodes_generate_messages_lisp
 nodes_generate_messages_lisp: /home/pi/Desktop/final_proj/devel/share/common-lisp/ros/nodes/msg/MotorCmd.lisp
+nodes_generate_messages_lisp: /home/pi/Desktop/final_proj/devel/share/common-lisp/ros/nodes/msg/OCRResponse.lisp
 nodes_generate_messages_lisp: nodes/CMakeFiles/nodes_generate_messages_lisp.dir/build.make
 
 .PHONY : nodes_generate_messages_lisp

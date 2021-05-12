@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "/home/pi/Desktop/final_proj/devel/share/gennodejs/ros/nodes/msg/MotorCmd.js"
+  "/home/pi/Desktop/final_proj/devel/share/gennodejs/ros/nodes/msg/OCRResponse.js"
   "CMakeFiles/nodes_generate_messages_nodejs"
 )
 

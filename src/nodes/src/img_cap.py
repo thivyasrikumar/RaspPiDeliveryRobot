@@ -38,7 +38,8 @@ def main():
 		camera.capture(raw_img, "bgr")
 		
 		# convert numpy array of image data to ROS image
-		raw_img_cv2 = bridge.cv2_to_imgmsg(np.flipud(raw_img.reshape(368, 480, 3)), "bgr8") 
+		raw_img_cv2 = bridge.cv2_to_imgmsg(np.flipud(np.fliplr(raw_img.reshape(368, 480, 3))), "bgr8") 
+		raw_img_cv2.header.stamp = rospy.Time.now()
 		img_pub.publish(raw_img_cv2)
 
 		# sleep for the remainder of 1/CAPTURE_RATE seconds

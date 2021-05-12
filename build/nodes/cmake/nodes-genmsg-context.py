@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/pi/Desktop/final_proj/src/nodes/msg/MotorCmd.msg"
+messages_str = "/home/pi/Desktop/final_proj/src/nodes/msg/MotorCmd.msg;/home/pi/Desktop/final_proj/src/nodes/msg/OCRResponse.msg"
 services_str = ""
 pkg_name = "nodes"
 dependencies_str = "std_msgs"

@@ -3,5 +3,7 @@
   (:export
    "<MOTORCMD>"
    "MOTORCMD"
+   "<OCRRESPONSE>"
+   "OCRRESPONSE"
   ))
 

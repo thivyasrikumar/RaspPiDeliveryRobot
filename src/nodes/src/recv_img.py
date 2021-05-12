@@ -29,7 +29,7 @@ def main():
 	# initialize node and create subscriber	
 	bridge = CvBridge()
 	rospy.init_node("rcv_img")
-	rospy.Subscriber("img_raw", ROSImage, handle_img)
+	rospy.Subscriber("img_proc", ROSImage, handle_img)
 	
 	while not rospy.is_shutdown():
 		if not (type(img) == type(None)): 

@@ -146,6 +146,7 @@ nodes/preinstall:
 .PHONY : nodes/preinstall
 
 # Recursive "clean" directory target.
+nodes/clean: nodes/CMakeFiles/nodes_generate_messages_py.dir/clean
 nodes/clean: nodes/CMakeFiles/nodes_generate_messages.dir/clean
 nodes/clean: nodes/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
 nodes/clean: nodes/CMakeFiles/nodes_genpy.dir/clean
@@ -154,6 +155,7 @@ nodes/clean: nodes/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
 nodes/clean: nodes/CMakeFiles/std_msgs_generate_messages_eus.dir/clean
 nodes/clean: nodes/CMakeFiles/nodes_genlisp.dir/clean
 nodes/clean: nodes/CMakeFiles/nodes_gencpp.dir/clean
+nodes/clean: nodes/CMakeFiles/_nodes_generate_messages_check_deps_OCRResponse.dir/clean
 nodes/clean: nodes/CMakeFiles/_nodes_generate_messages_check_deps_MotorCmd.dir/clean
 nodes/clean: nodes/CMakeFiles/nodes_generate_messages_cpp.dir/clean
 nodes/clean: nodes/CMakeFiles/nodes_generate_messages_eus.dir/clean
@@ -162,7 +164,6 @@ nodes/clean: nodes/CMakeFiles/nodes_generate_messages_nodejs.dir/clean
 nodes/clean: nodes/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 nodes/clean: nodes/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
 nodes/clean: nodes/CMakeFiles/nodes_gennodejs.dir/clean
-nodes/clean: nodes/CMakeFiles/nodes_generate_messages_py.dir/clean
 
 .PHONY : nodes/clean
 
@@ -411,14 +412,43 @@ gtest/googlemock/gtest/CMakeFiles/gtest.dir/clean:
 .PHONY : gtest/googlemock/gtest/CMakeFiles/gtest.dir/clean
 
 #=============================================================================
+# Target rules for target nodes/CMakeFiles/nodes_generate_messages_py.dir
+
+# All Build rule for target.
+nodes/CMakeFiles/nodes_generate_messages_py.dir/all: nodes/CMakeFiles/_nodes_generate_messages_check_deps_OCRResponse.dir/all
+nodes/CMakeFiles/nodes_generate_messages_py.dir/all: nodes/CMakeFiles/_nodes_generate_messages_check_deps_MotorCmd.dir/all
+nodes/CMakeFiles/nodes_generate_messages_py.dir/all: nodes/CMakeFiles/std_msgs_generate_messages_py.dir/all
+	$(MAKE) -f nodes/CMakeFiles/nodes_generate_messages_py.dir/build.make nodes/CMakeFiles/nodes_generate_messages_py.dir/depend
+	$(MAKE) -f nodes/CMakeFiles/nodes_generate_messages_py.dir/build.make nodes/CMakeFiles/nodes_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num=18,19,20 "Built target nodes_generate_messages_py"
+.PHONY : nodes/CMakeFiles/nodes_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+nodes/CMakeFiles/nodes_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 nodes/CMakeFiles/nodes_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 0
+.PHONY : nodes/CMakeFiles/nodes_generate_messages_py.dir/rule
+
+# Convenience name for target.
+nodes_generate_messages_py: nodes/CMakeFiles/nodes_generate_messages_py.dir/rule
+
+.PHONY : nodes_generate_messages_py
+
+# clean rule for target.
+nodes/CMakeFiles/nodes_generate_messages_py.dir/clean:
+	$(MAKE) -f nodes/CMakeFiles/nodes_generate_messages_py.dir/build.make nodes/CMakeFiles/nodes_generate_messages_py.dir/clean
+.PHONY : nodes/CMakeFiles/nodes_generate_messages_py.dir/clean
+
+#=============================================================================
 # Target rules for target nodes/CMakeFiles/nodes_generate_messages.dir
 
 # All Build rule for target.
+nodes/CMakeFiles/nodes_generate_messages.dir/all: nodes/CMakeFiles/nodes_generate_messages_py.dir/all
 nodes/CMakeFiles/nodes_generate_messages.dir/all: nodes/CMakeFiles/nodes_generate_messages_cpp.dir/all
 nodes/CMakeFiles/nodes_generate_messages.dir/all: nodes/CMakeFiles/nodes_generate_messages_eus.dir/all
 nodes/CMakeFiles/nodes_generate_messages.dir/all: nodes/CMakeFiles/nodes_generate_messages_lisp.dir/all
 nodes/CMakeFiles/nodes_generate_messages.dir/all: nodes/CMakeFiles/nodes_generate_messages_nodejs.dir/all
-nodes/CMakeFiles/nodes_generate_messages.dir/all: nodes/CMakeFiles/nodes_generate_messages_py.dir/all
 	$(MAKE) -f nodes/CMakeFiles/nodes_generate_messages.dir/build.make nodes/CMakeFiles/nodes_generate_messages.dir/depend
 	$(MAKE) -f nodes/CMakeFiles/nodes_generate_messages.dir/build.make nodes/CMakeFiles/nodes_generate_messages.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num= "Built target nodes_generate_messages"
@@ -426,7 +456,7 @@ nodes/CMakeFiles/nodes_generate_messages.dir/all: nodes/CMakeFiles/nodes_generat
 
 # Build rule for subdir invocation for target.
 nodes/CMakeFiles/nodes_generate_messages.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 12
 	$(MAKE) -f CMakeFiles/Makefile2 nodes/CMakeFiles/nodes_generate_messages.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 0
 .PHONY : nodes/CMakeFiles/nodes_generate_messages.dir/rule
@@ -480,7 +510,7 @@ nodes/CMakeFiles/nodes_genpy.dir/all: nodes/CMakeFiles/nodes_generate_messages_p
 
 # Build rule for subdir invocation for target.
 nodes/CMakeFiles/nodes_genpy.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 nodes/CMakeFiles/nodes_genpy.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 0
 .PHONY : nodes/CMakeFiles/nodes_genpy.dir/rule
@@ -507,7 +537,7 @@ nodes/CMakeFiles/nodes_geneus.dir/all: nodes/CMakeFiles/nodes_generate_messages_
 
 # Build rule for subdir invocation for target.
 nodes/CMakeFiles/nodes_geneus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 nodes/CMakeFiles/nodes_geneus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 0
 .PHONY : nodes/CMakeFiles/nodes_geneus.dir/rule
@@ -588,7 +618,7 @@ nodes/CMakeFiles/nodes_genlisp.dir/all: nodes/CMakeFiles/nodes_generate_messages
 
 # Build rule for subdir invocation for target.
 nodes/CMakeFiles/nodes_genlisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 nodes/CMakeFiles/nodes_genlisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 0
 .PHONY : nodes/CMakeFiles/nodes_genlisp.dir/rule
@@ -615,7 +645,7 @@ nodes/CMakeFiles/nodes_gencpp.dir/all: nodes/CMakeFiles/nodes_generate_messages_
 
 # Build rule for subdir invocation for target.
 nodes/CMakeFiles/nodes_gencpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 nodes/CMakeFiles/nodes_gencpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 0
 .PHONY : nodes/CMakeFiles/nodes_gencpp.dir/rule
@@ -629,6 +659,33 @@ nodes_gencpp: nodes/CMakeFiles/nodes_gencpp.dir/rule
 nodes/CMakeFiles/nodes_gencpp.dir/clean:
 	$(MAKE) -f nodes/CMakeFiles/nodes_gencpp.dir/build.make nodes/CMakeFiles/nodes_gencpp.dir/clean
 .PHONY : nodes/CMakeFiles/nodes_gencpp.dir/clean
+
+#=============================================================================
+# Target rules for target nodes/CMakeFiles/_nodes_generate_messages_check_deps_OCRResponse.dir
+
+# All Build rule for target.
+nodes/CMakeFiles/_nodes_generate_messages_check_deps_OCRResponse.dir/all:
+	$(MAKE) -f nodes/CMakeFiles/_nodes_generate_messages_check_deps_OCRResponse.dir/build.make nodes/CMakeFiles/_nodes_generate_messages_check_deps_OCRResponse.dir/depend
+	$(MAKE) -f nodes/CMakeFiles/_nodes_generate_messages_check_deps_OCRResponse.dir/build.make nodes/CMakeFiles/_nodes_generate_messages_check_deps_OCRResponse.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num= "Built target _nodes_generate_messages_check_deps_OCRResponse"
+.PHONY : nodes/CMakeFiles/_nodes_generate_messages_check_deps_OCRResponse.dir/all
+
+# Build rule for subdir invocation for target.
+nodes/CMakeFiles/_nodes_generate_messages_check_deps_OCRResponse.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 nodes/CMakeFiles/_nodes_generate_messages_check_deps_OCRResponse.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 0
+.PHONY : nodes/CMakeFiles/_nodes_generate_messages_check_deps_OCRResponse.dir/rule
+
+# Convenience name for target.
+_nodes_generate_messages_check_deps_OCRResponse: nodes/CMakeFiles/_nodes_generate_messages_check_deps_OCRResponse.dir/rule
+
+.PHONY : _nodes_generate_messages_check_deps_OCRResponse
+
+# clean rule for target.
+nodes/CMakeFiles/_nodes_generate_messages_check_deps_OCRResponse.dir/clean:
+	$(MAKE) -f nodes/CMakeFiles/_nodes_generate_messages_check_deps_OCRResponse.dir/build.make nodes/CMakeFiles/_nodes_generate_messages_check_deps_OCRResponse.dir/clean
+.PHONY : nodes/CMakeFiles/_nodes_generate_messages_check_deps_OCRResponse.dir/clean
 
 #=============================================================================
 # Target rules for target nodes/CMakeFiles/_nodes_generate_messages_check_deps_MotorCmd.dir
@@ -662,15 +719,16 @@ nodes/CMakeFiles/_nodes_generate_messages_check_deps_MotorCmd.dir/clean:
 
 # All Build rule for target.
 nodes/CMakeFiles/nodes_generate_messages_cpp.dir/all: nodes/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+nodes/CMakeFiles/nodes_generate_messages_cpp.dir/all: nodes/CMakeFiles/_nodes_generate_messages_check_deps_OCRResponse.dir/all
 nodes/CMakeFiles/nodes_generate_messages_cpp.dir/all: nodes/CMakeFiles/_nodes_generate_messages_check_deps_MotorCmd.dir/all
 	$(MAKE) -f nodes/CMakeFiles/nodes_generate_messages_cpp.dir/build.make nodes/CMakeFiles/nodes_generate_messages_cpp.dir/depend
 	$(MAKE) -f nodes/CMakeFiles/nodes_generate_messages_cpp.dir/build.make nodes/CMakeFiles/nodes_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num=9 "Built target nodes_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num=9,10 "Built target nodes_generate_messages_cpp"
 .PHONY : nodes/CMakeFiles/nodes_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 nodes/CMakeFiles/nodes_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 nodes/CMakeFiles/nodes_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 0
 .PHONY : nodes/CMakeFiles/nodes_generate_messages_cpp.dir/rule
@@ -690,15 +748,16 @@ nodes/CMakeFiles/nodes_generate_messages_cpp.dir/clean:
 
 # All Build rule for target.
 nodes/CMakeFiles/nodes_generate_messages_eus.dir/all: nodes/CMakeFiles/std_msgs_generate_messages_eus.dir/all
+nodes/CMakeFiles/nodes_generate_messages_eus.dir/all: nodes/CMakeFiles/_nodes_generate_messages_check_deps_OCRResponse.dir/all
 nodes/CMakeFiles/nodes_generate_messages_eus.dir/all: nodes/CMakeFiles/_nodes_generate_messages_check_deps_MotorCmd.dir/all
 	$(MAKE) -f nodes/CMakeFiles/nodes_generate_messages_eus.dir/build.make nodes/CMakeFiles/nodes_generate_messages_eus.dir/depend
 	$(MAKE) -f nodes/CMakeFiles/nodes_generate_messages_eus.dir/build.make nodes/CMakeFiles/nodes_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num=10,11 "Built target nodes_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num=11,12,13 "Built target nodes_generate_messages_eus"
 .PHONY : nodes/CMakeFiles/nodes_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
 nodes/CMakeFiles/nodes_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 nodes/CMakeFiles/nodes_generate_messages_eus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 0
 .PHONY : nodes/CMakeFiles/nodes_generate_messages_eus.dir/rule
@@ -718,15 +777,16 @@ nodes/CMakeFiles/nodes_generate_messages_eus.dir/clean:
 
 # All Build rule for target.
 nodes/CMakeFiles/nodes_generate_messages_lisp.dir/all: nodes/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+nodes/CMakeFiles/nodes_generate_messages_lisp.dir/all: nodes/CMakeFiles/_nodes_generate_messages_check_deps_OCRResponse.dir/all
 nodes/CMakeFiles/nodes_generate_messages_lisp.dir/all: nodes/CMakeFiles/_nodes_generate_messages_check_deps_MotorCmd.dir/all
 	$(MAKE) -f nodes/CMakeFiles/nodes_generate_messages_lisp.dir/build.make nodes/CMakeFiles/nodes_generate_messages_lisp.dir/depend
 	$(MAKE) -f nodes/CMakeFiles/nodes_generate_messages_lisp.dir/build.make nodes/CMakeFiles/nodes_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num=12 "Built target nodes_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num=14,15 "Built target nodes_generate_messages_lisp"
 .PHONY : nodes/CMakeFiles/nodes_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 nodes/CMakeFiles/nodes_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 nodes/CMakeFiles/nodes_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 0
 .PHONY : nodes/CMakeFiles/nodes_generate_messages_lisp.dir/rule
@@ -745,16 +805,17 @@ nodes/CMakeFiles/nodes_generate_messages_lisp.dir/clean:
 # Target rules for target nodes/CMakeFiles/nodes_generate_messages_nodejs.dir
 
 # All Build rule for target.
+nodes/CMakeFiles/nodes_generate_messages_nodejs.dir/all: nodes/CMakeFiles/_nodes_generate_messages_check_deps_OCRResponse.dir/all
 nodes/CMakeFiles/nodes_generate_messages_nodejs.dir/all: nodes/CMakeFiles/_nodes_generate_messages_check_deps_MotorCmd.dir/all
 nodes/CMakeFiles/nodes_generate_messages_nodejs.dir/all: nodes/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
 	$(MAKE) -f nodes/CMakeFiles/nodes_generate_messages_nodejs.dir/build.make nodes/CMakeFiles/nodes_generate_messages_nodejs.dir/depend
 	$(MAKE) -f nodes/CMakeFiles/nodes_generate_messages_nodejs.dir/build.make nodes/CMakeFiles/nodes_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num=13 "Built target nodes_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num=16,17 "Built target nodes_generate_messages_nodejs"
 .PHONY : nodes/CMakeFiles/nodes_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
 nodes/CMakeFiles/nodes_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 nodes/CMakeFiles/nodes_generate_messages_nodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 0
 .PHONY : nodes/CMakeFiles/nodes_generate_messages_nodejs.dir/rule
@@ -835,7 +896,7 @@ nodes/CMakeFiles/nodes_gennodejs.dir/all: nodes/CMakeFiles/nodes_generate_messag
 
 # Build rule for subdir invocation for target.
 nodes/CMakeFiles/nodes_gennodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 nodes/CMakeFiles/nodes_gennodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 0
 .PHONY : nodes/CMakeFiles/nodes_gennodejs.dir/rule
@@ -849,34 +910,6 @@ nodes_gennodejs: nodes/CMakeFiles/nodes_gennodejs.dir/rule
 nodes/CMakeFiles/nodes_gennodejs.dir/clean:
 	$(MAKE) -f nodes/CMakeFiles/nodes_gennodejs.dir/build.make nodes/CMakeFiles/nodes_gennodejs.dir/clean
 .PHONY : nodes/CMakeFiles/nodes_gennodejs.dir/clean
-
-#=============================================================================
-# Target rules for target nodes/CMakeFiles/nodes_generate_messages_py.dir
-
-# All Build rule for target.
-nodes/CMakeFiles/nodes_generate_messages_py.dir/all: nodes/CMakeFiles/_nodes_generate_messages_check_deps_MotorCmd.dir/all
-nodes/CMakeFiles/nodes_generate_messages_py.dir/all: nodes/CMakeFiles/std_msgs_generate_messages_py.dir/all
-	$(MAKE) -f nodes/CMakeFiles/nodes_generate_messages_py.dir/build.make nodes/CMakeFiles/nodes_generate_messages_py.dir/depend
-	$(MAKE) -f nodes/CMakeFiles/nodes_generate_messages_py.dir/build.make nodes/CMakeFiles/nodes_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Desktop/final_proj/build/CMakeFiles --progress-num=14,15 "Built target nodes_generate_messages_py"
-.PHONY : nodes/CMakeFiles/nodes_generate_messages_py.dir/all
-
-# Build rule for subdir invocation for target.
-nodes/CMakeFiles/nodes_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 nodes/CMakeFiles/nodes_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Desktop/final_proj/build/CMakeFiles 0
-.PHONY : nodes/CMakeFiles/nodes_generate_messages_py.dir/rule
-
-# Convenience name for target.
-nodes_generate_messages_py: nodes/CMakeFiles/nodes_generate_messages_py.dir/rule
-
-.PHONY : nodes_generate_messages_py
-
-# clean rule for target.
-nodes/CMakeFiles/nodes_generate_messages_py.dir/clean:
-	$(MAKE) -f nodes/CMakeFiles/nodes_generate_messages_py.dir/build.make nodes/CMakeFiles/nodes_generate_messages_py.dir/clean
-.PHONY : nodes/CMakeFiles/nodes_generate_messages_py.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

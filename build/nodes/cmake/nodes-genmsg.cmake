@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "nodes: 1 messages, 0 services")
+message(STATUS "nodes: 2 messages, 0 services")
 
 set(MSG_I_FLAGS "-Inodes:/home/pi/Desktop/final_proj/src/nodes/msg;-Istd_msgs:/opt/ros/melodic/share/std_msgs/cmake/../msg")
 
@@ -22,6 +22,11 @@ add_custom_target(_nodes_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "nodes" "/home/pi/Desktop/final_proj/src/nodes/msg/MotorCmd.msg" ""
 )
 
+get_filename_component(_filename "/home/pi/Desktop/final_proj/src/nodes/msg/OCRResponse.msg" NAME_WE)
+add_custom_target(_nodes_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "nodes" "/home/pi/Desktop/final_proj/src/nodes/msg/OCRResponse.msg" ""
+)
+
 #
 #  langs = gencpp;geneus;genlisp;gennodejs;genpy
 #
@@ -30,6 +35,12 @@ add_custom_target(_nodes_generate_messages_check_deps_${_filename}
 ### Generating Messages
 _generate_msg_cpp(nodes
   "/home/pi/Desktop/final_proj/src/nodes/msg/MotorCmd.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/nodes
+)
+_generate_msg_cpp(nodes
+  "/home/pi/Desktop/final_proj/src/nodes/msg/OCRResponse.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/nodes
@@ -51,6 +62,8 @@ add_dependencies(nodes_generate_messages nodes_generate_messages_cpp)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/pi/Desktop/final_proj/src/nodes/msg/MotorCmd.msg" NAME_WE)
 add_dependencies(nodes_generate_messages_cpp _nodes_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/Desktop/final_proj/src/nodes/msg/OCRResponse.msg" NAME_WE)
+add_dependencies(nodes_generate_messages_cpp _nodes_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(nodes_gencpp)
@@ -63,6 +76,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS nodes_generate_messages_cpp)
 ### Generating Messages
 _generate_msg_eus(nodes
   "/home/pi/Desktop/final_proj/src/nodes/msg/MotorCmd.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/nodes
+)
+_generate_msg_eus(nodes
+  "/home/pi/Desktop/final_proj/src/nodes/msg/OCRResponse.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/nodes
@@ -84,6 +103,8 @@ add_dependencies(nodes_generate_messages nodes_generate_messages_eus)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/pi/Desktop/final_proj/src/nodes/msg/MotorCmd.msg" NAME_WE)
 add_dependencies(nodes_generate_messages_eus _nodes_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/Desktop/final_proj/src/nodes/msg/OCRResponse.msg" NAME_WE)
+add_dependencies(nodes_generate_messages_eus _nodes_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(nodes_geneus)
@@ -96,6 +117,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS nodes_generate_messages_eus)
 ### Generating Messages
 _generate_msg_lisp(nodes
   "/home/pi/Desktop/final_proj/src/nodes/msg/MotorCmd.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/nodes
+)
+_generate_msg_lisp(nodes
+  "/home/pi/Desktop/final_proj/src/nodes/msg/OCRResponse.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/nodes
@@ -117,6 +144,8 @@ add_dependencies(nodes_generate_messages nodes_generate_messages_lisp)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/pi/Desktop/final_proj/src/nodes/msg/MotorCmd.msg" NAME_WE)
 add_dependencies(nodes_generate_messages_lisp _nodes_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/Desktop/final_proj/src/nodes/msg/OCRResponse.msg" NAME_WE)
+add_dependencies(nodes_generate_messages_lisp _nodes_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(nodes_genlisp)
@@ -129,6 +158,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS nodes_generate_messages_lisp)
 ### Generating Messages
 _generate_msg_nodejs(nodes
   "/home/pi/Desktop/final_proj/src/nodes/msg/MotorCmd.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/nodes
+)
+_generate_msg_nodejs(nodes
+  "/home/pi/Desktop/final_proj/src/nodes/msg/OCRResponse.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/nodes
@@ -150,6 +185,8 @@ add_dependencies(nodes_generate_messages nodes_generate_messages_nodejs)
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/pi/Desktop/final_proj/src/nodes/msg/MotorCmd.msg" NAME_WE)
 add_dependencies(nodes_generate_messages_nodejs _nodes_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/Desktop/final_proj/src/nodes/msg/OCRResponse.msg" NAME_WE)
+add_dependencies(nodes_generate_messages_nodejs _nodes_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(nodes_gennodejs)
@@ -162,6 +199,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS nodes_generate_messages_nodejs)
 ### Generating Messages
 _generate_msg_py(nodes
   "/home/pi/Desktop/final_proj/src/nodes/msg/MotorCmd.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/nodes
+)
+_generate_msg_py(nodes
+  "/home/pi/Desktop/final_proj/src/nodes/msg/OCRResponse.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/nodes
@@ -182,6 +225,8 @@ add_dependencies(nodes_generate_messages nodes_generate_messages_py)
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/pi/Desktop/final_proj/src/nodes/msg/MotorCmd.msg" NAME_WE)
+add_dependencies(nodes_generate_messages_py _nodes_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/pi/Desktop/final_proj/src/nodes/msg/OCRResponse.msg" NAME_WE)
 add_dependencies(nodes_generate_messages_py _nodes_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

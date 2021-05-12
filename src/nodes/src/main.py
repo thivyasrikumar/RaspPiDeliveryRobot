@@ -1,46 +1,57 @@
-import cv2
-import numpy as numpy
-import functions
+#!/usr/bin/env python
 
-curveList = []
-avgVal = 10
+import rospy
+from nodes.msg import MotorCmd
+from sensor_msgs.msg import Image as ROSImage
 
-# function to get the curve of the lane
-def curve(img): 
-    copy = img.copy()
+# input topics
+TOPIC_FROM_IMG_CAP = "img_raw"
+TOPIC_FROM_IMG_PROC = "lane_pos"
+TOPIC_FROM_IMG_TEXT = "text_pos"
 
-    # thresholding image to only see the white road (black everywhere else)
-    BWimg = functions.thresh(img)
+# output topics
+TOPIC_TO_MTR_CMD = "motor_cmd"
+TOPIC_TO_IMG_PROC = "img_proc"
+TOPIC_TO_IMG_TEXT = "img_text"
 
-    #
-    h,w,c = img.shape
-    points = functions.trackbars()
-    WARPimg = functions.warp(BWimg, points, w, h)
-    WARPimgPoints = functions.drawPoints(copy,points)
+# publishers
+pub_motor_cmd = None
+pub_img_proc = None
+pub_img_text = None
 
-    midPoint,imgHist = functions.distribution(WARPimg,display=True,minPer=0.5,region=4)
-    curveAvgPoint,imgHist = functions.distribution(WARPimg,display=True,minPer=0.5)
-    curveRaw = print(curveAngPoint-midPoint)  # curve value
 
-    curveList.append(curveRaw)
-    if len(curveList) > avgVal: 
-        curveList.pop(0)
-    curve = int(sum(curveList/len(curveList)))
+"""
+Callback function to handle an image being received from the capture node and 
+forward it to the processing and text nodes
+"""
+def handle_img_in(img):
+    global pub_motor_cmd
+    global pub_img_proc 
+    global pub_img_text 
 
-    cv2.imshow('Thresholded Image', BWimg)
-    cv2.imshow('Warped Image', WARPimg)
-    cv2.imshow('Warp Points', WARPimgPoints)
-    cv2.imshow("Distribution Histogram", imgHist)
-    return None
+    pub_img_proc.publish(img)
 
-if __name__ == '__main__':
-    cap = cv2.VideoCapture('vid.mp4')
-    initial = [102,80,20,214]
-    function.trackbars(initial)
-    frameCounter = 0
-    while True: 
-        frameCounter+=1
-        success, img = cap.read()
-        img = cv2.resize(img,(480,240))
-        cv2.imshow('Video', img)
-        cv2.waitkey(1) 
+
+"""
+Main function
+"""
+def main():
+    global pub_motor_cmd
+    global pub_img_proc 
+    global pub_img_text 
+
+    # initialize ROS node
+    rospy.init_node("main")
+
+    # initialize subscribers
+    rospy.Subscriber(TOPIC_FROM_IMG_CAP, ROSImage, handle_img_in)
+
+    # initialize publishers
+    pub_motor_cmd = rospy.Publisher(TOPIC_TO_MTR_CMD, MotorCmd, queue_size=20)
+    pub_img_proc = rospy.Publisher(TOPIC_TO_IMG_PROC, ROSImage, queue_size=20)
+    pub_img_text = rospy.Publisher(TOPIC_TO_IMG_TEXT, ROSImage, queue_size=20)
+    
+    rospy.spin()
+
+if __name__ == "__main__":
+    main()

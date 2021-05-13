@@ -1,2 +1,2 @@
-int64 speed
-int64 veer
+float64 speed
+float64 error

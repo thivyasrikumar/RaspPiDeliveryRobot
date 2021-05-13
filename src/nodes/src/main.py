@@ -5,14 +5,19 @@ from nodes.msg import MotorCmd
 from nodes.msg import OCRResponse
 from sensor_msgs.msg import Image as ROSImage
 from std_msgs.msg import Bool
+from std_msgs.msg import Int64
+
+# robot constants
+ROBOT_SPEED = 50.0
 
 # input topics
 TOPIC_FROM_IMG_CAP = "img_raw"
-TOPIC_FROM_IMG_PROC = "lane_pos"
+TOPIC_FROM_IMG_PROC = "offset"
 TOPIC_FROM_IMG_TEXT = "text_pos"
 TOPIC_FROM_IMG_TEXT_READY = "ocr_ready"
 
 # output topics
+TOPIC_TO_PID = "pid_cont"
 TOPIC_TO_MTR_CMD = "motor_cmd"
 TOPIC_TO_IMG_PROC = "img_proc"
 TOPIC_TO_IMG_TEXT = "img_text"
@@ -24,6 +29,22 @@ pub_img_text = None
 
 # state variables
 ocr_ready = True        # is the OCR node ready for a new image
+
+
+"""
+Receive the offset from the image processing node. This offset functions as the
+error in the PID controller node that is used to keep the robot on track.
+"""
+def handle_offset(offset):
+    global ROBOT_SPEED
+
+    error = offset.data
+
+    # create and send out a new motor command
+    motor_cmd = MotorCmd()
+    motor_cmd.speed = ROBOT_SPEED
+    motor_cmd.error = error
+    pub_motor_cmd.publish(motor_cmd)
 
 
 """
@@ -74,10 +95,11 @@ def main():
     # initialize subscribers
     rospy.Subscriber(TOPIC_FROM_IMG_CAP, ROSImage, handle_img_in)
     rospy.Subscriber(TOPIC_FROM_IMG_TEXT_READY, OCRResponse, handle_ocr_ready)
+    rospy.Subscriber(TOPIC_FROM_IMG_PROC, Int64, handle_offset)
 
     # initialize publishers
     pub_motor_cmd = rospy.Publisher(TOPIC_TO_MTR_CMD, MotorCmd, queue_size=1)
-    pub_img_proc = rospy.Publisher(TOPIC_TO_IMG_PROC, ROSImage, queue_size=1)
+    pub_img_proc = rospy.Publisher(TOPIC_TO_IMG_PROC, ROSImage, queue_size=10)
     pub_img_text = rospy.Publisher(TOPIC_TO_IMG_TEXT, ROSImage, queue_size=1)
     
     rospy.spin()

@@ -24,22 +24,22 @@ struct MotorCmd_
   typedef MotorCmd_<ContainerAllocator> Type;
 
   MotorCmd_()
-    : speed(0)
-    , veer(0)  {
+    : speed(0.0)
+    , error(0.0)  {
     }
   MotorCmd_(const ContainerAllocator& _alloc)
-    : speed(0)
-    , veer(0)  {
+    : speed(0.0)
+    , error(0.0)  {
   (void)_alloc;
     }
 
 
 
-   typedef int64_t _speed_type;
+   typedef double _speed_type;
   _speed_type speed;
 
-   typedef int64_t _veer_type;
-  _veer_type veer;
+   typedef double _error_type;
+  _error_type error;
 
 
 
@@ -71,7 +71,7 @@ template<typename ContainerAllocator1, typename ContainerAllocator2>
 bool operator==(const ::nodes::MotorCmd_<ContainerAllocator1> & lhs, const ::nodes::MotorCmd_<ContainerAllocator2> & rhs)
 {
   return lhs.speed == rhs.speed &&
-    lhs.veer == rhs.veer;
+    lhs.error == rhs.error;
 }
 
 template<typename ContainerAllocator1, typename ContainerAllocator2>
@@ -128,12 +128,12 @@ struct MD5Sum< ::nodes::MotorCmd_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "e331e937d522aefe0840576d89ae8c40";
+    return "88fdcae5d42ee49eb3449637009b77d4";
   }
 
   static const char* value(const ::nodes::MotorCmd_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0xe331e937d522aefeULL;
-  static const uint64_t static_value2 = 0x0840576d89ae8c40ULL;
+  static const uint64_t static_value1 = 0x88fdcae5d42ee49eULL;
+  static const uint64_t static_value2 = 0xb3449637009b77d4ULL;
 };
 
 template<class ContainerAllocator>
@@ -152,8 +152,8 @@ struct Definition< ::nodes::MotorCmd_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "int64 speed\n"
-"int64 veer\n"
+    return "float64 speed\n"
+"float64 error\n"
 ;
   }
 
@@ -173,7 +173,7 @@ namespace serialization
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
       stream.next(m.speed);
-      stream.next(m.veer);
+      stream.next(m.error);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -193,9 +193,9 @@ struct Printer< ::nodes::MotorCmd_<ContainerAllocator> >
   template<typename Stream> static void stream(Stream& s, const std::string& indent, const ::nodes::MotorCmd_<ContainerAllocator>& v)
   {
     s << indent << "speed: ";
-    Printer<int64_t>::stream(s, indent + "  ", v.speed);
-    s << indent << "veer: ";
-    Printer<int64_t>::stream(s, indent + "  ", v.veer);
+    Printer<double>::stream(s, indent + "  ", v.speed);
+    s << indent << "error: ";
+    Printer<double>::stream(s, indent + "  ", v.error);
   }
 };
 

@@ -19,20 +19,20 @@ class MotorCmd {
     if (initObj === null) {
       // initObj === null is a special case for deserialization where we don't initialize fields
       this.speed = null;
-      this.veer = null;
+      this.error = null;
     }
     else {
       if (initObj.hasOwnProperty('speed')) {
         this.speed = initObj.speed
       }
       else {
-        this.speed = 0;
+        this.speed = 0.0;
       }
-      if (initObj.hasOwnProperty('veer')) {
-        this.veer = initObj.veer
+      if (initObj.hasOwnProperty('error')) {
+        this.error = initObj.error
       }
       else {
-        this.veer = 0;
+        this.error = 0.0;
       }
     }
   }
@@ -40,9 +40,9 @@ class MotorCmd {
   static serialize(obj, buffer, bufferOffset) {
     // Serializes a message object of type MotorCmd
     // Serialize message field [speed]
-    bufferOffset = _serializer.int64(obj.speed, buffer, bufferOffset);
-    // Serialize message field [veer]
-    bufferOffset = _serializer.int64(obj.veer, buffer, bufferOffset);
+    bufferOffset = _serializer.float64(obj.speed, buffer, bufferOffset);
+    // Serialize message field [error]
+    bufferOffset = _serializer.float64(obj.error, buffer, bufferOffset);
     return bufferOffset;
   }
 
@@ -51,9 +51,9 @@ class MotorCmd {
     let len;
     let data = new MotorCmd(null);
     // Deserialize message field [speed]
-    data.speed = _deserializer.int64(buffer, bufferOffset);
-    // Deserialize message field [veer]
-    data.veer = _deserializer.int64(buffer, bufferOffset);
+    data.speed = _deserializer.float64(buffer, bufferOffset);
+    // Deserialize message field [error]
+    data.error = _deserializer.float64(buffer, bufferOffset);
     return data;
   }
 
@@ -68,14 +68,14 @@ class MotorCmd {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return 'e331e937d522aefe0840576d89ae8c40';
+    return '88fdcae5d42ee49eb3449637009b77d4';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
-    int64 speed
-    int64 veer
+    float64 speed
+    float64 error
     
     `;
   }
@@ -90,14 +90,14 @@ class MotorCmd {
       resolved.speed = msg.speed;
     }
     else {
-      resolved.speed = 0
+      resolved.speed = 0.0
     }
 
-    if (msg.veer !== undefined) {
-      resolved.veer = msg.veer;
+    if (msg.error !== undefined) {
+      resolved.error = msg.error;
     }
     else {
-      resolved.veer = 0
+      resolved.error = 0.0
     }
 
     return resolved;

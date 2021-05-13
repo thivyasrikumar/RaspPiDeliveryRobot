@@ -8,14 +8,14 @@ import struct
 
 
 class MotorCmd(genpy.Message):
-  _md5sum = "e331e937d522aefe0840576d89ae8c40"
+  _md5sum = "88fdcae5d42ee49eb3449637009b77d4"
   _type = "nodes/MotorCmd"
   _has_header = False  # flag to mark the presence of a Header object
-  _full_text = """int64 speed
-int64 veer
+  _full_text = """float64 speed
+float64 error
 """
-  __slots__ = ['speed','veer']
-  _slot_types = ['int64','int64']
+  __slots__ = ['speed','error']
+  _slot_types = ['float64','float64']
 
   def __init__(self, *args, **kwds):
     """
@@ -25,7 +25,7 @@ int64 veer
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       speed,veer
+       speed,error
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -35,12 +35,12 @@ int64 veer
       super(MotorCmd, self).__init__(*args, **kwds)
       # message fields cannot be None, assign default values for those that are
       if self.speed is None:
-        self.speed = 0
-      if self.veer is None:
-        self.veer = 0
+        self.speed = 0.
+      if self.error is None:
+        self.error = 0.
     else:
-      self.speed = 0
-      self.veer = 0
+      self.speed = 0.
+      self.error = 0.
 
   def _get_types(self):
     """
@@ -55,7 +55,7 @@ int64 veer
     """
     try:
       _x = self
-      buff.write(_get_struct_2q().pack(_x.speed, _x.veer))
+      buff.write(_get_struct_2d().pack(_x.speed, _x.error))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -71,7 +71,7 @@ int64 veer
       _x = self
       start = end
       end += 16
-      (_x.speed, _x.veer,) = _get_struct_2q().unpack(str[start:end])
+      (_x.speed, _x.error,) = _get_struct_2d().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -85,7 +85,7 @@ int64 veer
     """
     try:
       _x = self
-      buff.write(_get_struct_2q().pack(_x.speed, _x.veer))
+      buff.write(_get_struct_2d().pack(_x.speed, _x.error))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -102,7 +102,7 @@ int64 veer
       _x = self
       start = end
       end += 16
-      (_x.speed, _x.veer,) = _get_struct_2q().unpack(str[start:end])
+      (_x.speed, _x.error,) = _get_struct_2d().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e)  # most likely buffer underfill
@@ -111,9 +111,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_2q = None
-def _get_struct_2q():
-    global _struct_2q
-    if _struct_2q is None:
-        _struct_2q = struct.Struct("<2q")
-    return _struct_2q
+_struct_2d = None
+def _get_struct_2d():
+    global _struct_2d
+    if _struct_2d is None:
+        _struct_2d = struct.Struct("<2d")
+    return _struct_2d

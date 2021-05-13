@@ -1,10 +1,17 @@
 #!/usr/bin/env python
 
 import rospy
+from pid_controller import PID
 from nodes.msg import MotorCmd
 import RPi.GPIO as GPIO
 
+# PID constants and controllers
+K_P = 0.01
+K_I = 0
+K_D = 0
+pid = None
 
+# PWM channels to motors
 pwm_A1 = None
 pwm_A2 = None
 pwm_B1 = None
@@ -35,18 +42,24 @@ def drive(speed, veer):
 
 """
 Callback function to handle all incoming motor commands
-data: MotorCmd
+cmd: MotorCmd
 """
-def handle_motor_cmd(data):
-	speed = data.speed
-	veer = data.veer
-	drive(speed, veer)
+def handle_motor_cmd(cmd):
+	global pid
+
+	speed = cmd.speed
+	error = cmd.error
+	
+	# calculate the next veer value and put it into the driver
+	offset = pid.next(error)
+	drive(speed, offset)
 
 
 """
 Main function
 """
 def main():
+	global pid
 	global pwm_A1
 	global pwm_A2
 	global pwm_B1
@@ -76,10 +89,13 @@ def main():
 	pwm_A2.start(0)
 	pwm_B1.start(0)
 	pwm_B2.start(0)
+
+	# initialize PID controller
+	pid = PID(0, 100, K_P, K_I, K_D)
 	
 	# initialize ROS node and listen for commands
 	rospy.init_node("motor_ctrl")
-	rospy.Subscriber("motor_ctrl", MotorCmd, handle_motor_cmd)
+	rospy.Subscriber("motor_cmd", MotorCmd, handle_motor_cmd)
 	rospy.spin()
 	
 

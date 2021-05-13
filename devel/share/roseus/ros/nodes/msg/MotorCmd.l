@@ -14,102 +14,62 @@
 
 (defclass nodes::MotorCmd
   :super ros::object
-  :slots (_speed _veer ))
+  :slots (_speed _error ))
 
 (defmethod nodes::MotorCmd
   (:init
    (&key
-    ((:speed __speed) 0)
-    ((:veer __veer) 0)
+    ((:speed __speed) 0.0)
+    ((:error __error) 0.0)
     )
    (send-super :init)
-   (setq _speed (round __speed))
-   (setq _veer (round __veer))
+   (setq _speed (float __speed))
+   (setq _error (float __error))
    self)
   (:speed
    (&optional __speed)
    (if __speed (setq _speed __speed)) _speed)
-  (:veer
-   (&optional __veer)
-   (if __veer (setq _veer __veer)) _veer)
+  (:error
+   (&optional __error)
+   (if __error (setq _error __error)) _error)
   (:serialization-length
    ()
    (+
-    ;; int64 _speed
+    ;; float64 _speed
     8
-    ;; int64 _veer
+    ;; float64 _error
     8
     ))
   (:serialize
    (&optional strm)
    (let ((s (if strm strm
               (make-string-output-stream (send self :serialization-length)))))
-     ;; int64 _speed
-#+(or :alpha :irix6 :x86_64)
-       (progn (sys::poke _speed (send s :buffer) (send s :count) :long) (incf (stream-count s) 8))
-#-(or :alpha :irix6 :x86_64)
-       (cond ((and (class _speed) (= (length (_speed . bv)) 2)) ;; bignum
-              (write-long (ash (elt (_speed . bv) 0) 0) s)
-              (write-long (ash (elt (_speed . bv) 1) -1) s))
-             ((and (class _speed) (= (length (_speed . bv)) 1)) ;; big1
-              (write-long (elt (_speed . bv) 0) s)
-              (write-long (if (>= _speed 0) 0 #xffffffff) s))
-             (t                                         ;; integer
-              (write-long _speed s)(write-long (if (>= _speed 0) 0 #xffffffff) s)))
-     ;; int64 _veer
-#+(or :alpha :irix6 :x86_64)
-       (progn (sys::poke _veer (send s :buffer) (send s :count) :long) (incf (stream-count s) 8))
-#-(or :alpha :irix6 :x86_64)
-       (cond ((and (class _veer) (= (length (_veer . bv)) 2)) ;; bignum
-              (write-long (ash (elt (_veer . bv) 0) 0) s)
-              (write-long (ash (elt (_veer . bv) 1) -1) s))
-             ((and (class _veer) (= (length (_veer . bv)) 1)) ;; big1
-              (write-long (elt (_veer . bv) 0) s)
-              (write-long (if (>= _veer 0) 0 #xffffffff) s))
-             (t                                         ;; integer
-              (write-long _veer s)(write-long (if (>= _veer 0) 0 #xffffffff) s)))
+     ;; float64 _speed
+       (sys::poke _speed (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
+     ;; float64 _error
+       (sys::poke _error (send s :buffer) (send s :count) :double) (incf (stream-count s) 8)
      ;;
      (if (null strm) (get-output-stream-string s))))
   (:deserialize
    (buf &optional (ptr- 0))
-   ;; int64 _speed
-#+(or :alpha :irix6 :x86_64)
-      (setf _speed (prog1 (sys::peek buf ptr- :long) (incf ptr- 8)))
-#-(or :alpha :irix6 :x86_64)
-      (setf _speed (let ((b0 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4)))
-                  (b1 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4))))
-              (cond ((= b1 -1) b0)
-                     ((and (= b1  0)
-                           (<= lisp::most-negative-fixnum b0 lisp::most-positive-fixnum))
-                      b0)
-                    ((= b1  0) (make-instance bignum :size 1 :bv (integer-vector b0)))
-                    (t (make-instance bignum :size 2 :bv (integer-vector b0 (ash b1 1)))))))
-   ;; int64 _veer
-#+(or :alpha :irix6 :x86_64)
-      (setf _veer (prog1 (sys::peek buf ptr- :long) (incf ptr- 8)))
-#-(or :alpha :irix6 :x86_64)
-      (setf _veer (let ((b0 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4)))
-                  (b1 (prog1 (sys::peek buf ptr- :integer) (incf ptr- 4))))
-              (cond ((= b1 -1) b0)
-                     ((and (= b1  0)
-                           (<= lisp::most-negative-fixnum b0 lisp::most-positive-fixnum))
-                      b0)
-                    ((= b1  0) (make-instance bignum :size 1 :bv (integer-vector b0)))
-                    (t (make-instance bignum :size 2 :bv (integer-vector b0 (ash b1 1)))))))
+   ;; float64 _speed
+     (setq _speed (sys::peek buf ptr- :double)) (incf ptr- 8)
+   ;; float64 _error
+     (setq _error (sys::peek buf ptr- :double)) (incf ptr- 8)
    ;;
    self)
   )
 
-(setf (get nodes::MotorCmd :md5sum-) "e331e937d522aefe0840576d89ae8c40")
+(setf (get nodes::MotorCmd :md5sum-) "88fdcae5d42ee49eb3449637009b77d4")
 (setf (get nodes::MotorCmd :datatype-) "nodes/MotorCmd")
 (setf (get nodes::MotorCmd :definition-)
-      "int64 speed
-int64 veer
+      "float64 speed
+float64 error
 
 ")
 
 
 
-(provide :nodes/MotorCmd "e331e937d522aefe0840576d89ae8c40")
+(provide :nodes/MotorCmd "88fdcae5d42ee49eb3449637009b77d4")
 
 
